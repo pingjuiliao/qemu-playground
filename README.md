@@ -5,11 +5,11 @@ Build disk image
 qemu-img create -f qcow2 qemuimg16.qcow 16G 
 ```
 
-Run it for the first time
+Install OS
 ```
 qemu-system-x86_64 -m 1024 -enable-kvm \
  -cdrom ubuntu-22.04-desktop-amd64.iso \ 
- -drive qemuimg16.qcow,format=qcow2
+ -drive file=qemuimg16.qcow,format=qcow2
 ## then build ubuntu from the ubuntu desktop prompt
 ## this will permenantly write the ubuntu OS into the disk (qemu16.qcow)
 ```
@@ -19,9 +19,9 @@ qemu-system-x86_64 -m 1024 -enable-kvm \
 **drive**: disk image
 **initrd**: ?
 
-to run it
+run it
 ```
-qemu-system-x86_64 -m 1024 -enable-kvm qemuimg+16.qcow
+qemu-system-x86_64 -m 1024 -enable-kvm qemuimg16.qcow
 ```
 
 
